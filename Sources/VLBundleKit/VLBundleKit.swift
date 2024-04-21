@@ -18,12 +18,10 @@ public extension Bundle
   return version
  }
  
- var fullVersionNumber: String { fullVersionNumber(format: nil) }
+ var fullVersionNumber: String { fullVersionNumber() }
  
- func fullVersionNumber(format: String? = nil) -> String
+ func fullVersionNumber(format: String = "%@ (%@)") -> String
  {
-  let format: String = format ?? "%@ (%@)"
-  
   return String(format: format, releaseVersionNumber, buildVersionNumber)
  }
 }
