@@ -1,8 +1,8 @@
 import Foundation
 
-public extension Bundle
+extension Bundle
 {
- var buildVersionNumber: String
+ public var buildVersionNumber: String
  {
   guard let version: String = infoDictionary?["CFBundleVersion"] as? String
   else { return "?" }
@@ -10,7 +10,7 @@ public extension Bundle
   return version
  }
  
- var bundleIdentifierVersioned: String
+ public var bundleIdentifierVersioned: String
  {
   let id: String = Bundle.main.bundleIdentifier ?? "No bundle identifier"
   let version: String = fullVersionNumber
@@ -18,14 +18,14 @@ public extension Bundle
   return "\(id) v.\(version)"
  }
 
- var fullVersionNumber: String { fullVersionNumber() }
- 
- func fullVersionNumber(format: String = "%@ (%@)") -> String
+ public var fullVersionNumber: String { fullVersionNumber() }
+
+ public func fullVersionNumber(format: String = "%@ (%@)") -> String
  {
   return String(format: format, releaseVersionNumber, buildVersionNumber)
  }
  
- var releaseVersionNumber: String
+ public var releaseVersionNumber: String
  {
   guard let version: String = infoDictionary?["CFBundleShortVersionString"] as? String
   else { return "?" }
